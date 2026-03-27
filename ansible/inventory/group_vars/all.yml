@@ -5,7 +5,6 @@ deploy_base_dir: /opt/kb-pipeline
 traefik_image: traefik:v3.3
 traefik_log_level: INFO
 acme_email: matthias.engelhardt84@gmail.com
-authentik_admin_email: matthias.engelhardt84@gmail.com
 pg_user: authentik
 pg_db: authentik
 

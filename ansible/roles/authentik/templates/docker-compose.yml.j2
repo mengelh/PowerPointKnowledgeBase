@@ -49,7 +49,7 @@ services:
       AUTHENTIK_WEB__PATH: "{{ authentik_web_path }}"
       AUTHENTIK_COOKIE_DOMAIN: "{{ authentik_cookie_domain }}"
       AUTHENTIK_LISTEN__PROXY_TRUSTED_CIDRS: "172.16.0.0/12,10.0.0.0/8"
-      AUTHENTIK_BOOTSTRAP_EMAIL: "{{ authentik_admin_email }}"
+      AUTHENTIK_BOOTSTRAP_EMAIL: "{{ vault_authentik_admin_email }}"
       AUTHENTIK_BOOTSTRAP_PASSWORD: "{{ vault_authentik_admin_password }}"
       AUTHENTIK_BOOTSTRAP_TOKEN: "{{ vault_authentik_bootstrap_token }}"
     volumes:
