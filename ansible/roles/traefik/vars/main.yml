@@ -1,0 +1,4 @@
+---
+traefik_config_dir: "{{ deploy_base_dir }}/traefik/config"
+traefik_dynamic_dir: "{{ deploy_base_dir }}/traefik/config/dynamic"
+traefik_compose_dir: "{{ deploy_base_dir }}/traefik"

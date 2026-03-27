@@ -1,0 +1,65 @@
+---
+- name: Create Traefik directory structure
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  loop:
+    - "{{ traefik_compose_dir }}"
+    - "{{ traefik_config_dir }}"
+    - "{{ traefik_dynamic_dir }}"
+
+- name: Create proxy Docker network
+  community.docker.docker_network:
+    name: proxy
+    driver: bridge
+    state: present
+
+- name: Template Traefik static config
+  ansible.builtin.template:
+    src: traefik.yml.j2
+    dest: "{{ traefik_config_dir }}/traefik.yml"
+    owner: root
+    mode: "0644"
+  notify: restart traefik
+
+- name: Template ForwardAuth middleware dynamic config
+  ansible.builtin.template:
+    src: middlewares.yml.j2
+    dest: "{{ traefik_dynamic_dir }}/middlewares.yml"
+    owner: root
+    mode: "0644"
+  notify: restart traefik
+
+- name: Template dashboard router dynamic config
+  ansible.builtin.template:
+    src: dashboard.yml.j2
+    dest: "{{ traefik_dynamic_dir }}/dashboard.yml"
+    owner: root
+    mode: "0644"
+  notify: restart traefik
+
+- name: Template TLS options dynamic config
+  ansible.builtin.template:
+    src: tls.yml.j2
+    dest: "{{ traefik_dynamic_dir }}/tls.yml"
+    owner: root
+    mode: "0644"
+  notify: restart traefik
+
+- name: Template Traefik Docker Compose file
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ traefik_compose_dir }}/docker-compose.yml"
+    owner: root
+    mode: "0644"
+  notify: restart traefik
+
+- name: Ensure Traefik stack is running
+  community.docker.docker_compose_v2:
+    project_src: "{{ traefik_compose_dir }}"
+    state: present
+    pull: missing
+    remove_orphans: true
