@@ -9,12 +9,12 @@
 
 ### Traefik
 
-- [ ] **TRFK-01**: Traefik läuft als Reverse Proxy mit Docker-Provider (`exposedByDefault: false`); Services opt-in per Label
-- [ ] **TRFK-02**: TLS über Self-signed-Zertifikat auf der Test-VM; alle Routen HTTPS-only
-- [ ] **TRFK-03**: HTTP → HTTPS Redirect aktiv — kein Plaintext-Zugriff möglich
-- [ ] **TRFK-04**: Traefik Dashboard erreichbar unter `[DOMAIN]/traefik`, geschützt durch Authentik ForwardAuth
-- [ ] **TRFK-05**: Traefik Access Logs in JSON-Format aktiviert
-- [ ] **TRFK-06**: Prometheus Metrics Endpoint aktiviert (für späteres Monitoring bereit)
+- [x] **TRFK-01**: Traefik läuft als Reverse Proxy mit Docker-Provider (`exposedByDefault: false`); Services opt-in per Label
+- [x] **TRFK-02**: TLS über Self-signed-Zertifikat auf der Test-VM; alle Routen HTTPS-only
+- [x] **TRFK-03**: HTTP → HTTPS Redirect aktiv — kein Plaintext-Zugriff möglich
+- [x] **TRFK-04**: Traefik Dashboard erreichbar unter `[DOMAIN]/traefik`, geschützt durch Authentik ForwardAuth
+- [x] **TRFK-05**: Traefik Access Logs in JSON-Format aktiviert
+- [x] **TRFK-06**: Prometheus Metrics Endpoint aktiviert (für späteres Monitoring bereit)
 
 ### Authentik
 
@@ -29,8 +29,8 @@
 
 ### Deployment
 
-- [ ] **DEPL-01**: Docker Compose Healthchecks auf allen Services (PostgreSQL, Redis, Authentik-Server, Traefik) — `depends_on` mit `condition: service_healthy`
-- [ ] **DEPL-02**: Ansible Playbook deployt den vollen Stack (Traefik + Authentik) von Null auf einer frischen VM reproduzierbar
+- [x] **DEPL-01**: Docker Compose Healthchecks auf allen Services (PostgreSQL, Redis, Authentik-Server, Traefik) — `depends_on` mit `condition: service_healthy`
+- [x] **DEPL-02**: Ansible Playbook deployt den vollen Stack (Traefik + Authentik) von Null auf einer frischen VM reproduzierbar
 - [ ] **DEPL-03**: Ansible Playbook ist idempotent — zweiter Durchlauf via Semaphore zeigt keine Änderungen
 - [ ] **DEPL-04**: Secrets (`AUTHENTIK_SECRET_KEY`, DB-Passwort, weitere Credentials) in Ansible Vault verschlüsselt — nicht im Git-Repo im Klartext
 - [ ] **DEPL-05**: Semaphore-Pipeline führt das Ansible Playbook erfolgreich gegen die Test-VM aus; Ergebnis in Semaphore-UI verifiziert
@@ -89,12 +89,12 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TRFK-01 | Phase 1 | Pending |
-| TRFK-02 | Phase 1 | Pending |
-| TRFK-03 | Phase 1 | Pending |
-| TRFK-04 | Phase 1 | Pending |
-| TRFK-05 | Phase 1 | Pending |
-| TRFK-06 | Phase 1 | Pending |
+| TRFK-01 | Phase 1 | Complete |
+| TRFK-02 | Phase 1 | Complete |
+| TRFK-03 | Phase 1 | Complete |
+| TRFK-04 | Phase 1 | Complete |
+| TRFK-05 | Phase 1 | Complete |
+| TRFK-06 | Phase 1 | Complete |
 | AUTH-01 | Phase 1 | Pending |
 | AUTH-02 | Phase 1 | Pending |
 | AUTH-03 | Phase 1 | Pending |
@@ -103,8 +103,8 @@
 | AUTH-06 | Phase 1 | Pending |
 | AUTH-07 | Phase 1 | Pending |
 | AUTH-08 | Phase 1 | Pending |
-| DEPL-01 | Phase 1 | Pending |
-| DEPL-02 | Phase 1 | Pending |
+| DEPL-01 | Phase 1 | Complete |
+| DEPL-02 | Phase 1 | Complete |
 | DEPL-03 | Phase 1 | Pending |
 | DEPL-04 | Phase 1 | Pending |
 | DEPL-05 | Phase 1 | Pending |

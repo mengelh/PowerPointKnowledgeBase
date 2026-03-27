@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: TBD
 
 Plans:
-- [ ] 01-01: Docker engine + Traefik role (proxy network, static/dynamic config, HTTPS, dashboard)
+- [x] 01-01: Docker engine + Traefik role (proxy network, static/dynamic config, HTTPS, dashboard)
 - [ ] 01-02: Authentik role (PostgreSQL, Redis, server + worker, ForwardAuth provider, groups and test users)
 - [ ] 01-03: Ansible vault, Semaphore pipeline setup, idempotency verification
 
@@ -102,7 +102,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (Phase 5 can start after Ph
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Infrastruktur | 0/3 | Not started | - |
+| 1. Infrastruktur | 1/3 | In Progress|  |
 | 2. Backend & Auth Integration | 0/2 | Not started | - |
 | 3. Frontend Application | 0/1 | Not started | - |
 | 4. Processing Pipeline | 0/2 | Not started | - |
