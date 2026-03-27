@@ -18,7 +18,7 @@
 
 ### Authentik
 
-- [ ] **AUTH-01**: Authentik Server + Worker laufen stabil; PostgreSQL und Redis als Dependencies mit `service_healthy` Healthchecks
+- [ ] **AUTH-01**: Authentik Server + Worker laufen stabil; PostgreSQL und Valkey als Dependencies mit `service_healthy` Healthchecks
 - [ ] **AUTH-02**: Authentik erreichbar unter `[DOMAIN]/authentik` via `AUTHENTIK_WEB__PATH` Umgebungsvariable
 - [ ] **AUTH-03**: Authentik Initial-Setup abgeschlossen — Admin-Superuser erstellt, initiales Passwort geändert
 - [ ] **AUTH-04**: Authentik ForwardAuth Provider + Embedded Outpost konfiguriert; Traefik kann Authentik als Auth-Backend nutzen
