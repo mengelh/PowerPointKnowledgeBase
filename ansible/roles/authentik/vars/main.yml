@@ -1,0 +1,5 @@
+---
+authentik_compose_dir: "{{ deploy_base_dir }}/authentik"
+authentik_image: ghcr.io/goauthentik/server:2026.2.1
+authentik_web_path: /authentik
+authentik_cookie_domain: "{{ domain }}"

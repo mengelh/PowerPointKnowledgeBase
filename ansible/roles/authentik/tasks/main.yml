@@ -1,0 +1,38 @@
+---
+- name: Create Authentik directory structure
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  loop:
+    - "{{ authentik_compose_dir }}"
+    - "{{ authentik_compose_dir }}/media"
+    - "{{ authentik_compose_dir }}/custom-templates"
+    - "{{ authentik_compose_dir }}/certs"
+
+- name: Template Authentik Docker Compose file
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ authentik_compose_dir }}/docker-compose.yml"
+    owner: root
+    mode: "0640"
+  notify: restart authentik
+
+- name: Ensure Authentik stack is running
+  community.docker.docker_compose_v2:
+    project_src: "{{ authentik_compose_dir }}"
+    state: present
+    pull: missing
+    remove_orphans: true
+
+- name: Wait for Authentik server to be healthy
+  community.docker.docker_container_info:
+    name: authentik-server
+  register: authentik_info
+  until: >
+    authentik_info.container is defined and
+    authentik_info.container.State.Health.Status == 'healthy'
+  retries: 20
+  delay: 15

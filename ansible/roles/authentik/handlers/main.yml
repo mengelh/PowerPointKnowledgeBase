@@ -1,0 +1,7 @@
+---
+- name: restart authentik
+  community.docker.docker_compose_v2:
+    project_src: "{{ authentik_compose_dir }}"
+    state: present
+    recreate: auto
+    remove_orphans: true

@@ -1,0 +1,9 @@
+# THIS FILE MUST BE ENCRYPTED WITH ansible-vault BEFORE COMMITTING
+# Run: ansible-vault encrypt ansible/inventory/group_vars/all/vault.yml
+#
+# Generate values:
+#   vault_authentik_secret_key: openssl rand -hex 32
+#   vault_pg_password: openssl rand -base64 24 | tr -d '/'
+#
+vault_authentik_secret_key: "REPLACE_BEFORE_ENCRYPT"
+vault_pg_password: "REPLACE_BEFORE_ENCRYPT"
