@@ -69,7 +69,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.authentik.rule=PathPrefix(`{{ authentik_web_path }}`)"
-      - "traefik.http.routers.authentik.entrypoints=websecure"
+      - "traefik.http.routers.authentik.entrypoints=websecure,web-internal"
       - "traefik.http.routers.authentik.tls=true"
       - "traefik.http.services.authentik.loadbalancer.server.port=9000"
       - "traefik.docker.network=proxy"

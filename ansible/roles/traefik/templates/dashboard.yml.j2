@@ -4,6 +4,7 @@ http:
       rule: "PathPrefix(`/traefik`)"
       entryPoints:
         - websecure
+        - web-internal
       service: api@internal
       tls: {}
       middlewares:
