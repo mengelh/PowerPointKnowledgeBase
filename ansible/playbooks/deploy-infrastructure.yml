@@ -1,0 +1,8 @@
+---
+- name: Deploy KB-Pipeline Infrastructure (Traefik + Authentik)
+  hosts: all
+  become: true
+  roles:
+    - role: docker
+    - role: traefik
+    - role: authentik

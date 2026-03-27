@@ -1,0 +1,6 @@
+---
+# Non-secret shared variables — safe to commit plain text
+domain: home-engelhardt.uk
+deploy_base_dir: /opt/kb-pipeline
+traefik_image: traefik:v3.3
+traefik_log_level: INFO
