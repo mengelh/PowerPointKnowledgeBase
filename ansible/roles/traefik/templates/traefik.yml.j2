@@ -19,8 +19,13 @@ entryPoints:
           permanent: true
   websecure:
     address: ":443"
-  web-internal:
-    address: ":8080"
+    http:
+      tls:
+        certResolver: letsencrypt
+        domains:
+          - main: "{{ domain }}"
+            sans:
+              - "*.{{ domain }}"
   metrics:
     address: ":8082"
 
@@ -44,3 +49,14 @@ metrics:
     entryPoint: metrics
     addRoutersLabels: true
     addServicesLabels: true
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: "{{ acme_email }}"
+      storage: /etc/traefik/acme.json
+      dnsChallenge:
+        provider: cloudflare
+        resolvers:
+          - "1.1.1.1:53"
+          - "1.0.0.1:53"

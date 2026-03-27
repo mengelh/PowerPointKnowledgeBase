@@ -8,11 +8,13 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
+    environment:
+      CF_DNS_API_TOKEN: "{{ vault_cf_dns_api_token }}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - {{ traefik_config_dir }}/traefik.yml:/etc/traefik/traefik.yml:ro
       - {{ traefik_dynamic_dir }}:/etc/traefik/dynamic:ro
+      - {{ traefik_config_dir }}/acme.json:/etc/traefik/acme.json
     networks:
       - proxy
     healthcheck:

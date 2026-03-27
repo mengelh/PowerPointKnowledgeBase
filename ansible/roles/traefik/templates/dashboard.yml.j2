@@ -5,17 +5,9 @@ http:
       entryPoints:
         - websecure
       service: api@internal
-      tls: {}
       middlewares:
         - traefik-strip-prefix@file
-        # - authentik-forward-auth@file  # re-enable after Authentik is configured
-    traefik-dashboard-internal:
-      rule: "PathPrefix(`/traefik`)"
-      entryPoints:
-        - web-internal
-      service: api@internal
-      middlewares:
-        - traefik-strip-prefix@file
+        - authentik-forward-auth@file
 
   middlewares:
     traefik-strip-prefix:

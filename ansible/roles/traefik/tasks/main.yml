@@ -17,6 +17,16 @@
     driver: bridge
     state: present
 
+- name: Create acme.json for Let's Encrypt certificate storage
+  ansible.builtin.file:
+    path: "{{ traefik_config_dir }}/acme.json"
+    state: touch
+    owner: root
+    group: root
+    mode: "0600"
+    modification_time: preserve
+    access_time: preserve
+
 - name: Template Traefik static config
   ansible.builtin.template:
     src: traefik.yml.j2
