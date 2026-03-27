@@ -19,3 +19,4 @@ venv/
 
 # Ansible temp files
 *.retry
+ansible/inventory/group_vars/all/vault.yml
