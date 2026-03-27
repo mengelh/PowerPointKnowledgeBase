@@ -7,7 +7,7 @@ http:
       service: api@internal
       middlewares:
         - traefik-strip-prefix@file
-        - authentik-forward-auth@file
+        # authentik-forward-auth@file — re-enable after Authentik ForwardAuth provider is configured
 
   middlewares:
     traefik-strip-prefix:
