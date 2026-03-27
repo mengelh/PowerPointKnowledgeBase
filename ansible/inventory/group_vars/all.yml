@@ -6,3 +6,8 @@ traefik_image: traefik:v3.3
 traefik_log_level: INFO
 pg_user: authentik
 pg_db: authentik
+
+# Semaphore runner connection settings (test VM only)
+# StrictHostKeyChecking=no is acceptable for the test VM.
+# Production deployments should use known_hosts or certificate-based host verification.
+ansible_ssh_common_args: "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"

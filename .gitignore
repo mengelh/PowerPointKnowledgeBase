@@ -1,1 +1,21 @@
 .planning/secrets.local
+
+# Ansible vault password files — NEVER commit these
+.vault_pass
+.vault-pass
+vault_pass.txt
+*.vault-pass
+
+# Local override files
+*.local
+.env.local
+ansible/.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Ansible temp files
+*.retry
