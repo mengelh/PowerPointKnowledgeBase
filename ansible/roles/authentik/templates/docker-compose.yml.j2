@@ -69,13 +69,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 60s
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.authentik.rule=PathPrefix(`{{ authentik_web_path }}`)"
-      - "traefik.http.routers.authentik.entrypoints=websecure,web-internal"
-      - "traefik.http.routers.authentik.tls=true"
-      - "traefik.http.services.authentik.loadbalancer.server.port=9000"
-      - "traefik.docker.network=proxy"
+    # Traefik routing defined in file provider (traefik role) — avoids Docker provider API version issues
 
   authentik-worker:
     image: {{ authentik_image }}

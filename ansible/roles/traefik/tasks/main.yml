@@ -51,6 +51,14 @@
     mode: "0644"
   notify: restart traefik
 
+- name: Template Authentik router dynamic config
+  ansible.builtin.template:
+    src: authentik.yml.j2
+    dest: "{{ traefik_dynamic_dir }}/authentik.yml"
+    owner: root
+    mode: "0644"
+  notify: restart traefik
+
 - name: Template TLS options dynamic config
   ansible.builtin.template:
     src: tls.yml.j2

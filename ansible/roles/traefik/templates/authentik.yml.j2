@@ -1,0 +1,14 @@
+http:
+  routers:
+    authentik:
+      rule: "PathPrefix(`{{ authentik_web_path }}`)"
+      entryPoints:
+        - websecure
+      service: authentik
+      tls: {}
+
+  services:
+    authentik:
+      loadBalancer:
+        servers:
+          - url: "http://authentik-server:9000"

@@ -12,7 +12,6 @@ services:
       CF_DNS_API_TOKEN: "{{ vault_cf_dns_api_token }}"
       DOCKER_API_VERSION: "1.41"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
       - {{ traefik_config_dir }}/traefik.yml:/etc/traefik/traefik.yml:ro
       - {{ traefik_dynamic_dir }}:/etc/traefik/dynamic:ro
       - {{ traefik_config_dir }}/acme.json:/etc/traefik/acme.json
