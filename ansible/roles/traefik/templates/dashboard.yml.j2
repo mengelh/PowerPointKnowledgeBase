@@ -8,3 +8,10 @@ http:
       tls: {}
       middlewares:
         - authentik-forward-auth@file
+        - traefik-strip-prefix@file
+
+  middlewares:
+    traefik-strip-prefix:
+      stripPrefix:
+        prefixes:
+          - "/traefik"
