@@ -12,7 +12,7 @@ KB-Pipeline transforms an unstructured PowerPoint file silo into a searchable, r
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Infrastruktur** - Traefik + Authentik deployed via Ansible/Semaphore; HTTPS routing and ForwardAuth protecting all routes; idempotent from day one
+- [x] **Phase 1: Infrastruktur** - Traefik + Authentik deployed via Ansible/Semaphore; HTTPS routing and ForwardAuth protecting all routes; idempotent from day one (completed 2026-03-27)
 - [ ] **Phase 2: Backend & Auth Integration** - FastAPI REST API behind Traefik + Authentik OIDC; PostgreSQL, Redis, Celery workers operational
 - [ ] **Phase 3: Frontend Application** - Angular + PrimeNG UI behind Traefik; OIDC login flow; users can navigate and search the knowledge base
 - [ ] **Phase 4: Processing Pipeline** - Gotenberg PPTX-to-image conversion, MCP AI-Server, MinIO object storage, Confluence export, PPTX download
@@ -34,8 +34,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01: Docker engine + Traefik role (proxy network, static/dynamic config, HTTPS, dashboard)
-- [ ] 01-02: Authentik role (PostgreSQL, Redis, server + worker, ForwardAuth provider, groups and test users)
-- [ ] 01-03: Ansible vault, Semaphore pipeline setup, idempotency verification
+- [x] 01-02: Authentik role (PostgreSQL, Redis, server + worker, ForwardAuth provider, groups and test users)
+- [x] 01-03: Ansible vault, Semaphore pipeline setup, idempotency verification
 
 ### Phase 2: Backend & Auth Integration
 **Goal**: The FastAPI backend is reachable behind Traefik, authenticates users via Authentik OIDC, and exposes a working REST API backed by PostgreSQL with full-text search and Celery for async task processing
@@ -102,7 +102,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (Phase 5 can start after Ph
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Infrastruktur | 1/3 | In Progress|  |
+| 1. Infrastruktur | 3/3 | Complete   | 2026-03-27 |
 | 2. Backend & Auth Integration | 0/2 | Not started | - |
 | 3. Frontend Application | 0/1 | Not started | - |
 | 4. Processing Pipeline | 0/2 | Not started | - |
